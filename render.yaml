@@ -2,6 +2,7 @@ services:
   - type: web
     name: student-portfolio
     runtime: java
+    repo: https://github.com/Gleb-er/student-portfolio
     plan: free
     buildCommand: ./mvnw clean package
     startCommand: java -jar target/*.jar
@@ -12,14 +13,8 @@ services:
         fromDatabase:
           name: student-portfolio-db
           property: connectionString
-      - key: DATABASE_USERNAME
-        fromDatabase:
-          name: student-portfolio-db
-          property: user
-      - key: DATABASE_PASSWORD
-        fromDatabase:
-          name: student-portfolio-db
-          property: password
+      - key: JAVA_VERSION
+        value: 17
 
 databases:
   - name: student-portfolio-db
