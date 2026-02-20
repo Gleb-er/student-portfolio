@@ -1,6 +1,7 @@
 services:
   - type: web
     name: student-portfolio
+    runtime: native  # или попробовать этот вариант
     repo: https://github.com/Gleb-er/student-portfolio
     plan: free
     region: oregon
@@ -10,8 +11,3 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
-
-databases:
-  - name: student-portfolio-db
-    plan: free
-    region: oregon
