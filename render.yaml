@@ -1,7 +1,7 @@
 services:
   - type: web
     name: student-portfolio
-    runtime: java17
+    runtime: java17  # или другой вариант
     repo: https://github.com/Gleb-er/student-portfolio
     plan: free
     region: oregon
@@ -11,3 +11,9 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
+
+databases:
+  - type: postgresql
+    name: student-portfolio-db
+    plan: free
+    region: oregon
