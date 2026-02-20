@@ -7,5 +7,12 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+
+# Явно указываем, что приложение будет слушать порт, который задаст Render
 EXPOSE 8080
+
+# Добавляем скрипт, который будет ждать базу данных (опционально, но полезно)
+RUN apk add --no-cache curl
+
+# Команда запуска с передачей переменных окружения
 CMD ["java", "-jar", "app.jar"]
