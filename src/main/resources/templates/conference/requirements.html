@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>Требования к оформлению - СНО ОмГУПС</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        .requirements-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        .requirement-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid #007bff;
+        }
+        .requirement-section h4 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .example-block {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 12pt;
+            margin-top: 15px;
+        }
+        .badge-requirement {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        .download-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">СНО ОмГУПС</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/conference">О конференции</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/conference/sections">Секции</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/conference/requirements">Требования</a>
+                </li>
+
+                <!-- Для авторизованных пользователей -->
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/conference/apply">Подать заявку</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/portfolio/my">Портфолио</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/logout">Выйти</a>
+                </li>
+
+                <!-- Для неавторизованных пользователей -->
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link btn btn-primary text-white px-3 mx-2" href="/login">Вход</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link btn btn-success text-white px-3" href="/register">Регистрация</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="requirements-header text-center">
+    <div class="container">
+        <h1 class="display-4">Требования к оформлению статей</h1>
+        <p class="lead">XIII Всероссийская студенческая научная конференция с международным участием</p>
+        <p class="lead">«Студент: наука, профессия, жизнь»</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <!-- Основные требования -->
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Структура статьи -->
+            <div class="requirement-section">
+                <h4><i class="bi bi-file-text"></i> Структура статьи</h4>
+                <p>Статья должна содержать следующие элементы в указанном порядке:</p>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">1</span> УДК</h5>
+                    <p>В левом верхнем углу, обычный шрифт, 14 пт.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">2</span> Информация об авторе(ах) на русском языке</h5>
+                    <ul>
+                        <li>Инициалы и фамилия (по центру, полужирный, 14 пт)</li>
+                        <li>Информация об учебном учреждении (по центру, обычный, 12 пт)</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">3</span> Название статьи на русском языке</h5>
+                    <p>По центру, прописными буквами, полужирный, 14 пт</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">4</span> Аннотация и ключевые слова на русском языке</h5>
+                    <p>По ширине, курсив, 12 пт. Аннотация должна кратко отражать содержание статьи (3-5 предложений).</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">5</span> Информация об авторе(ах) на английском языке</h5>
+                    <p>По центру, полужирный, 14 пт. Транслитерация фамилий и инициалов.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">6</span> Название статьи на английском языке</h5>
+                    <p>По центру, прописными буквами, полужирный, 14 пт</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">7</span> Аннотация и ключевые слова на английском языке</h5>
+                    <p>По ширине, курсив, 12 пт</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">8</span> Основной текст статьи</h5>
+                    <p>Обычный текст, 14 пт</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">9</span> Информация о научном руководителе</h5>
+                    <p>В конце основного текста статьи, перед списком литературы. Формат: <strong>И.О. Фамилия, ученая степень, звание, место работы</strong>. Шрифт Times New Roman, полужирный, 14 пт.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h5><span class="badge-requirement">10</span> Список литературы</h5>
+                    <p>Заголовок "Список литературы". От 3 до 10 наименований. Оформляется по требованиям ГОСТ 7.0.100-2018.</p>
+                </div>
+            </div>
+
+            <!-- Технические требования -->
+            <div class="requirement-section">
+                <h4><i class="bi bi-gear"></i> Технические требования</h4>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 40%;">Параметр</th>
+                        <th>Значение</th>
+                    </tr>
+                    <tr>
+                        <td>Формат файла</td>
+                        <td><span class="badge bg-primary">Microsoft Word (.doc, .docx)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Размер страницы</td>
+                        <td>А4 (210 × 297 мм), книжная ориентация</td>
+                    </tr>
+                    <tr>
+                        <td>Поля</td>
+                        <td>слева, сверху, справа – 2,0 см, снизу – 3,2 см</td>
+                    </tr>
+                    <tr>
+                        <td>Шрифт основного текста</td>
+                        <td>Times New Roman, 14 пт</td>
+                    </tr>
+                    <tr>
+                        <td>Межстрочный интервал</td>
+                        <td>1,15</td>
+                    </tr>
+                    <tr>
+                        <td>Абзацный отступ</td>
+                        <td>1,25 см</td>
+                    </tr>
+                    <tr>
+                        <td>Объем статьи</td>
+                        <td>от 4 до 6 страниц (включая иллюстрации, таблицы, список литературы)</td>
+                    </tr>
+                    <tr>
+                        <td>Уникальность текста</td>
+                        <td><span class="badge bg-danger">не менее 70%</span></td>
+                    </tr>
+                </table>
+
+                <div class="alert alert-warning mt-3">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <strong>Важно:</strong> Материалы, оформленные не в соответствии с указанными требованиями, не принимаются к публикации и не возвращаются.
+                </div>
+            </div>
+
+            <!-- Дополнительные требования -->
+            <div class="requirement-section">
+                <h4><i class="bi bi-pencil"></i> Дополнительные требования</h4>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Буквы латинского алфавита набираются курсивом
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Буквы греческого и русского алфавита набираются прямым шрифтом
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Текст в таблицах, названия рисунков и таблиц – Times New Roman, 14 пт
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Подрисуночные подписи – Times New Roman, 12 пт
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Ссылки на литературу в тексте указываются в квадратных скобках [1]
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Избегать повторения одних и тех же данных в таблицах, на графиках и в тексте
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Пример оформления -->
+            <div class="requirement-section">
+                <h4><i class="bi bi-eye"></i> Пример оформления статьи</h4>
+
+                <div class="example-block">
+                    <p>УДК 629.4.015</p>
+                    <p>&nbsp;</p>
+                    <p align="center"><strong>И. И. Иванов, П. П. Петров, С. С. Сидоров</strong></p>
+                    <p align="center">Омский государственный университет путей сообщения (ОмГУПС), г. Омск, Российская Федерация</p>
+                    <p>&nbsp;</p>
+                    <p align="center"><strong>НАЗВАНИЕ СТАТЬИ НА РУССКОМ ЯЗЫКЕ</strong></p>
+                    <p>&nbsp;</p>
+                    <p><em>Текст аннотации на русском языке. Текст аннотации на русском языке. Текст аннотации на русском языке.</em></p>
+                    <p>&nbsp;</p>
+                    <p><em>Ключевые слова: слово, слово, слово.</em></p>
+                    <p>&nbsp;</p>
+                    <p align="center"><strong>Ivan I. Ivanov, Petr P. Petrov, Semen S. Sidorov</strong></p>
+                    <p align="center">Omsk State Transport University (OSTU), Omsk, the Russian Federation</p>
+                    <p>&nbsp;</p>
+                    <p align="center"><strong>ARTICLE TITLE IN ENGLISH</strong></p>
+                    <p>&nbsp;</p>
+                    <p><em>Annotation text in English. Annotation text in English. Annotation text in English.</em></p>
+                    <p>&nbsp;</p>
+                    <p><em>Keywords: words, words, words.</em></p>
+                    <p>&nbsp;</p>
+                    <p>Основной текст статьи. Одним из важнейших путей повышения эффективности работы транспорта является ...</p>
+                    <p>&nbsp;</p>
+                    <p align="center">(1)</p>
+                    <p>где символ – …;<br>символ – ….</p>
+                    <p>&nbsp;</p>
+                    <p>Полученные данные сведены в таблицу 1.</p>
+                    <p>&nbsp;</p>
+                    <p align="center"><strong>Таблица 1</strong></p>
+                    <p align="center">Результаты исследований</p>
+                    <p>&nbsp;</p>
+                    <p><strong>Научный руководитель – М. М. Максин, кандидат технических наук, доцент кафедры «Локомотивы», ОмГУПС.</strong></p>
+                    <p>&nbsp;</p>
+                    <p><strong>Список литературы</strong></p>
+                    <p>1. История России : учебное пособие для вузов / В. Н. Быков, А. И. Иванов, В. П. Петров, А. Я. Борисов ; отв. ред. А. П. Сухов. – 2-е изд., перераб. и доп. – Санкт-Петербург : Санкт-Петербургская лесотехническая академия, 2001. – 231 с. – Текст : непосредственный.</p>
+                    <p>2. Инновационные проекты и технологии в образовании, промышленности и на транспорте: материалы научной конференции / отв. ред. И. И. Галиев. – Омск : Омский гос. ун-т путей сообщения, 2020. – 439 с. – ISBN 978-5-949-41255-8. – Текст : непосредственный.</p>
+                    <p>3. ГОСТ Р 57564–2017. Организация и проведение работ по международной стандартизации в Российской Федерации = Organization and implementation of activity on international standardization in Russian Federation : национальный стандарт Российской Федерации : издание официальное : утвержден и введен в действие приказом Федерального агентства по техническому регулированию и метрологии от 28 июля 2017 г. № 767-ст : введен впервые : дата введения 2017–12–01 / разработан Всероссийским научно-исследовательским институтом стандартизации и сертификации в машиностроении (ВНИИНМАШем). – Москва : Стандартинформ, 2017. – 43 с. – Текст : непосредственный.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="col-md-4">
+            <!-- Скачать шаблон -->
+            <div class="download-card mb-4">
+                <i class="bi bi-file-word" style="font-size: 3rem; color: #007bff;"></i>
+                <h4 class="mt-3">Шаблон статьи</h4>
+                <p>Скачайте готовый шаблон статьи в формате .doc</p>
+                <a href="/files/download-template" class="btn btn-primary btn-lg">
+                    <i class="bi bi-download"></i> Скачать шаблон
+                </a>
+            </div>
+
+            <!-- Важные даты -->
+            <div class="card mb-4">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0"><i class="bi bi-calendar-event"></i> Важные даты</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>📅 Окончание приема заявок:</strong> 8 апреля 2026</li>
+                        <li class="mb-2"><strong>📅 Окончание приема статей:</strong> 19 апреля 2026</li>
+                        <li class="mb-2"><strong>📅 Работа секций:</strong> 20-25 апреля 2026</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Проверка уникальности -->
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0"><i class="bi bi-shield-check"></i> Проверка уникальности</h5>
+                </div>
+                <div class="card-body">
+                    <p>Все статьи проверяются на уникальность. Минимальный порог:</p>
+                    <h2 class="text-center text-danger">70%</h2>
+                    <p class="text-center mb-0">оригинальности текста</p>
+                </div>
+            </div>
+
+            <!-- Контакты -->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-question-circle"></i> Вопросы по оформлению</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Евсеев Алексей Анатольевич</strong></p>
+                    <p>начальник отдела научно-технической информации ОмГУПС</p>
+                    <a href="mailto:nti.omgups@mail.ru" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-envelope"></i> nti.omgups@mail.ru
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <p>© 2026 Студенческое научное общество ОмГУПС</p>
+        <p>г. Омск, пр. Маркса, 35</p>
+
+        <div class="mt-3" sec:authorize="isAuthenticated()">
+            <a href="/portfolio/my" class="text-white me-3">Мое портфолио</a>
+            <a href="/conference/my-application" class="text-white me-3">Мои заявки</a>
+            <a href="/logout" class="text-white">Выйти</a>
+        </div>
+
+        <div class="mt-3" sec:authorize="!isAuthenticated()">
+            <a href="/login" class="text-white me-3">Вход</a>
+            <a href="/register" class="text-white">Регистрация</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

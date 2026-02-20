@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <title>Заявка отправлена - СНО ОмГУПС</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">СНО ОмГУПС</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/conference">О конференции</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/conference/sections">Секции</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/conference/requirements">Требования</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/portfolio/my">Портфолио</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Выйти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <div class="card">
+                <div class="card-body py-5">
+                    <div class="mb-4">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                    </div>
+
+                    <h1 class="display-4 mb-4">Заявка успешно отправлена!</h1>
+
+                    <p class="lead mb-4">
+                        Спасибо за участие в конференции!<br>
+                        Ваша заявка принята и отправлена на рассмотрение.
+                    </p>
+
+                    <div class="alert alert-info mb-4">
+                        <h5>Что дальше?</h5>
+                        <ul class="text-start">
+                            <li>Мы проверим вашу заявку в течение 3-5 рабочих дней</li>
+                            <li>Статус заявки можно отслеживать в личном кабинете</li>
+                            <li>Решение будет отправлено на ваш email</li>
+                            <li>При необходимости с вами свяжется руководитель секции</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-grid gap-3 col-6 mx-auto">
+                        <a href="/conference/my-application" class="btn btn-primary btn-lg">
+                            Просмотреть статус заявки
+                        </a>
+                        <a href="/portfolio/my" class="btn btn-outline-secondary btn-lg">
+                            Вернуться в портфолио
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <p>© 2026 Студенческое научное общество ОмГУПС</p>
+        <p>г. Омск, пр. Маркса, 35</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
