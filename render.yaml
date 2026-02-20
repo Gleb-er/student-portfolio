@@ -1,10 +1,10 @@
 services:
   - type: web
     name: student-portfolio
-    runtime: java
+    runtime: java  # оставляем как есть, но проверим другие варианты
     repo: https://github.com/Gleb-er/student-portfolio
     plan: free
-    region: frankfurt  # или выберите другой регион, например 'singapore'
+    region: oregon
     branch: master
     buildCommand: ./mvnw clean package
     startCommand: java -jar target/*.jar
@@ -15,4 +15,4 @@ services:
 databases:
   - name: student-portfolio-db
     plan: free
-    region: oregon  # должен совпадать с регионом web-сервиса
+    region: oregon
