@@ -1,7 +1,7 @@
 services:
   - type: web
     name: student-portfolio
-    runtime: java  # верните обратно, но проверим
+    runtime: java17
     repo: https://github.com/Gleb-er/student-portfolio
     plan: free
     region: oregon
