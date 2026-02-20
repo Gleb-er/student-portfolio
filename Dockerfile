@@ -9,5 +9,8 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
-# Эта команда передаст переменные окружения из Render внутрь контейнера
-CMD ["sh", "-c", "java -jar app.jar"]
+# Явно принимаем переменную из вне и устанавливаем её внутри контейнера
+ENV DATABASE_URL=${DATABASE_URL}
+
+# Запускаем приложение (shell теперь не обязателен, так как переменная установлена выше)
+CMD ["java", "-jar", "app.jar"]
