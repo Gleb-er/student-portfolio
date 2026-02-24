@@ -8,6 +8,4 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Просто запускаем приложение, все настройки уже в properties
 CMD ["java", "-jar", "app.jar"]
