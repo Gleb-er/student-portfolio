@@ -9,9 +9,5 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
-# Принудительно принимаем переменные окружения
-ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-ENV DATABASE_URL=${DATABASE_URL}
-
-# Запускаем приложение и явно передаем переменные в Java
-CMD ["sh", "-c", "java -Dspring.profiles.active=${SPRING_PROFILES_ACTIVE} -jar app.jar"]
+# Просто запускаем приложение, все настройки уже в properties
+CMD ["java", "-jar", "app.jar"]
