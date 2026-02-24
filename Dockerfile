@@ -9,8 +9,9 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
-# Явно принимаем переменную из вне и устанавливаем её внутри контейнера
+# Передаем переменные окружения в приложение
+ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
 ENV DATABASE_URL=${DATABASE_URL}
 
-# Запускаем приложение (shell теперь не обязателен, так как переменная установлена выше)
+# Запускаем приложение
 CMD ["java", "-jar", "app.jar"]
